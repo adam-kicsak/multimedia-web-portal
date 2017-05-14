@@ -1,0 +1,49 @@
+RewriteEngine on
+
+RewriteRule ^Controller/(.*)$ . [redirect=404]
+RewriteRule ^Converter/(.*)$ . [redirect=404]
+RewriteRule ^MVC/(.*)$ . [redirect=404]
+RewriteRule ^Template/(.*)$ . [redirect=404]
+RewriteRule ^Util/(.*)$ . [redirect=404]
+
+RewriteRule ^Index$ index.php
+
+RewriteRule ^Player\.([0-9A-Fa-f]{8,8})$ index.php?_c=Player&id=$1
+RewriteRule ^Player\.Album\.([0-9A-Fa-f]{8,8}).(\d+)$ index.php?_c=Player&_m=Album&album=$1&p=$2
+
+RewriteRule ^User$ index.php?_c=User
+RewriteRule ^User\.(Register|ClearAuthentication)$ index.php?_c=User&_m=$1
+
+RewriteRule ^Media\.(NewContent|NewContent\.Commit|ByUser)$ index.php?_c=Media&_m=$1
+RewriteRule ^Media\.ByUser\.(\d+)$ index.php?_c=Media&_m=ByUser&page=$1
+RewriteRule ^Media\.ByUser\.([a-zA-Z0-9_]+)$ index.php?_c=Media&_m=ByUser&user=$1
+RewriteRule ^Media\.ByUser\.([a-zA-Z0-9_]+)\.(\d+)$ index.php?_c=Media&_m=ByUser&user=$1&page=$2
+RewriteRule ^Media\.Remove\.([0-9A-Fa-f]{8,8}) index.php?_c=Media&_m=Remove&media=$1
+
+RewriteRule ^MediaComment$ index.php?_c=MediaComment
+RewriteRule ^MediaComment\.Remove\.(\d+)$ index.php?_c=MediaComment&_m=Remove&comment=$1
+
+RewriteRule ^Favorite\.(ByUser)$ index.php?_c=Favorite&_m=$1
+RewriteRule ^Favorite\.ByUser\.(\d+)$ index.php?_c=Favorite&_m=ByUser&page=$1
+RewriteRule ^Favorite\.ByUser\.([a-zA-Z0-9_]+)$ index.php?_c=Favorite&_m=ByUser&user=$1
+RewriteRule ^Favorite\.ByUser\.([a-zA-Z0-9_]+)\.(\d+)$ index.php?_c=Favorite&_m=ByUser&user=$1&page=$2
+RewriteRule ^Favorite\.Add\.([0-9A-Fa-f]{8,8}) index.php?_c=Favorite&_m=Add&media=$1
+RewriteRule ^Favorite\.Remove\.([0-9A-Fa-f]{8,8}) index.php?_c=Favorite&_m=Remove&media=$1
+
+RewriteRule ^Album\.(ByUser|Create)$ index.php?_c=Album&_m=$1
+RewriteRule ^Album\.ByUser\.(\d+)$ index.php?_c=Album&_m=ByUser&page=$1
+RewriteRule ^Album\.ByUser\.([a-zA-Z0-9_]+)$ index.php?_c=Album&_m=ByUser&user=$1
+RewriteRule ^Album\.ByUser\.([a-zA-Z0-9_]+)\.(\d+)$ index.php?_c=Album&_m=ByUser&user=$1&page=$2
+RewriteRule ^Album\.Delete\.([0-9A-Fa-f]{8,8})$ index.php?_c=Album&_m=Delete&album=$1
+
+RewriteRule ^AlbumContent\.([0-9A-Fa-f]{8,8}) index.php?_c=AlbumContent&album=$1
+RewriteRule ^AlbumContent\.Add\.([0-9A-Fa-f]{8,8}) index.php?_c=AlbumContent&_m=Add&media=$1
+RewriteRule ^AlbumContent\.Remove\.([0-9A-Fa-f]{8,8}) index.php?_c=AlbumContent&_m=Remove&media=$1
+RewriteRule ^AlbumContent\.EndEdit index.php?_c=AlbumContent&_m=EndEdit
+
+RewriteRule ^Profil$ index.php?_c=Profil
+RewriteRule ^Profil\.([a-zA-Z0-9_]+)$ index.php?_c=Profil&user=$1
+RewriteRule ^Profil\.Admin\.([a-zA-Z0-9_]+)$ index.php?_c=Profil&_m=Admin&user=$1
+
+RewriteRule ^Search$ index.php?_c=Search
+RewriteRule ^Search\.(\d+)$ index.php?_c=Search&page=$1
